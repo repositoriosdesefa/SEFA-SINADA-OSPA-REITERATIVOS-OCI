@@ -1,0 +1,128 @@
+---
+params:
+  HT_1: "XXXX-XXX-XXXXXX"
+  N_OFICIO_2: 
+  LUGAR_3: "Lima"
+  DESTINATARIO_4: 
+  EFA_5: 
+  DPTO_EFA_6: 
+  PROV_EFA_7: 
+  DIR_EFA_8:
+  OCI_9:  "MUNICIPALIDAD PROVINCIAL XXXXX"
+  DPTO_OCI_10: "LIMA"
+  PROV_OCI_11:
+  DIR_OCI_12: "Jr. Lima XX, Cercado de Lima"
+  FIRMANTE_13: "[PCASTANEDA]"
+  ADICIONAL_14: "OSP-XXX"
+  ADICIONAL_15: "OFICIO N° XXXX-XXXX-XXXX/XXXX-XXXX"
+  ADICIONAL_16: "OFICIO N° XXXX-XXXX-XXXX/XXXX-XXXX"
+  ADICIONAL_17:
+  ADICIONAL_18:
+output: 
+  word_document:
+    reference_docx: "plantilla_oci.docx"
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+
+# I. LIBRERIAS A UTILIZAR----
+
+#install.packages("lubridate")
+library(lubridate)
+#install.packages("stringr")
+library(stringr)
+
+# II. FECHA DEL DOCUMENTO----
+
+# Mes
+Mes_actual <- str_to_lower(month(now(), 
+                                 label=TRUE, abbr = FALSE))
+
+# III. DEFINIR LOS PARAMETROS----
+
+# Parámetros
+HT <- params$HT_1 
+NUM_OFICIO <- params$N_OFICIO_2
+LUGAR <- params$LUGAR_3
+DESTINATARIO <- params$DESTINATARIO_4
+EFA <- params$EFA_5 
+DPTO_EFA <- params$DPTO_EFA_6
+PROV_EFA <- params$PROV_EFA_7
+DIR_EFA <- params$DIR_EFA_8
+OCI <- params$OCI_9 
+DPTO_OCI <- params$DPTO_OCI_10
+PROV_OCI <- params$PROV_OCI_11
+DIR_OCI <- params$DIR_OCI_12
+FIRMA <- params$FIRMANTE_13
+AUX_1 <- params$ADICIONAL_14
+AUX_2 <- params$ADICIONAL_15
+AUX_3 <- params$ADICIONAL_16
+
+# Descripción del problema ambiental
+AUX_5 <- params$ADICIONAL_18
+
+
+```
+
+###### `r HT[[1]]`
+
+### `r LUGAR[[1]]`, `r day(now())` de `r Mes_actual[[1]]` de `r year(now())`
+
+# \${numeroDocumento}
+
+### Sr/a
+
+### **`r DESTINATARIO[[1]]`**
+
+### Jefe/a del Órgano de Control Institucional
+
+### `r OCI[[1]]`
+
+### `r DIR_OCI[[1]]`
+
+#### [`r DPTO_OCI[[1]]`]{.ul}.-
+
+|            |     |                                                         |
+|------------|-----|---------------------------------------------------------|
+| Asunto     | :   | Comunico incumplimiento sobre solicitud de información  |
+|            |     | (Código de problema ambiental [**`r AUX_1[[1]]`**]{.ul})|
+| Referencia | :   | `r AUX_2[[1]]`                                          |
+|            |     | `r AUX_3[[1]]`                                          |
+
+De mi mayor consideración[^1]:
+
+Tengo el agrado de dirigirme a usted para saludarlo cordialmente en el marco del seguimiento que el Organismo de Evaluación y Fiscalización Ambiental (OEFA) viene realizando a el/la `r EFA[[1]]`, en su calidad de entidad de fiscalización ambiental (EFA) competente, en lo que respecta al cumplimiento de sus funciones de fiscalización ambiental en atención al problema ambiental registrado en el Observatorio de Solución de Problemas Ambientales (OSPA) de esta Subdirección, con el código [**`r AUX_1[[1]]`**]{.ul}[^2]**.**
+
+Sobre el particular, mediante los documentos de la referencia, este organismo, como ente rector del Sistema Nacional de Evaluación y Fiscalización Ambiental (Sinefa), solicitó ---de manera reiterada--- a la EFA información respecto a las acciones a bordar respecto al problema ambiental materia de seguimiento; no obstante, transcurridos los plazos otorgados en dichos documentos, no se cuenta con respuesta alguna. [Dicha situación impide a este organismo verificar si la EFA estaría cumplimiento ---o no--- con sus funciones de fiscalización ambiental respecto del problema ambiental reportado]{.ul}.
+
+En ese escenario, en cumplimiento a lo dispuesto en el numeral 11.2 del Artículo 11 de la Ley N° 29325, Ley del Sistema Nacional de Evaluación y Fiscalización Ambiental, modificada por la Ley N° 30011[^3], remitimos los actuados, a fin de que determine las responsabilidades funcionales que correspondan.
+
+Es propicia la oportunidad para expresarle a usted, los sentimientos de mi especial consideración.
+
+Atentamente,
+
+|     |     |     |
+|-----|-----|-----|
+|     |     |     |
+|     |     |     |
+|     |     |     |
+|     |     |     |
+|     |     |     |
+
+**`r FIRMA[[1]]`**
+
+##### Se adjuntan los oficios de la referencia y sus respectivos cargos.
+
+[^1]: El presente documento ha sido generado de manera automatizada ante la ausencia de respuesta de la EFA.
+
+[^2]: `r AUX_5[[1]]`
+
+[^3]: **Ley N° 29325 - Ley del Sistema Nacional de Evaluación y Fiscalización Ambiental, modificada por la Ley N° 30011. Artículo 11°. - Funciones Generales**
+
+    .  (...) 11.2 El OEFA, en su calidad de ente rector del Sistema Nacional de Evaluación y Fiscalización Ambiental (SINEFA), ejerce las siguientes funciones:
+
+    .  (...) b) Función supervisora de Entidades de Fiscalización Ambiental (EFA), nacional, regional o local: comprende la facultad de realizar acciones de seguimiento y verificación del desempeño de las funciones de fiscalización a cargo de entidades de fiscalización ambiental nacional, regional o local a las que se refiere el artículo 7.
+
+    .  (...) El incumplimiento de las funciones antes indicadas acarrea responsabilidad funcional, lo cual es comunicado al órgano competente del Sistema Nacional de Control.

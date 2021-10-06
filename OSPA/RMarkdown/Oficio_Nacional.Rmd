@@ -1,0 +1,115 @@
+---
+params:
+  HT_1: "XXXX-XXX-XXXXXX"
+  N_OFICIO_2: "OFICIO N° XXXX-XXXX-XXXX/XXXX-XXXX"
+  LUGAR_3: "Lima"
+  DESTINATARIO_4: "Juan Perez"
+  EFA_5: "MUNICIPALIDAD PROVINCIAL XXXXX"
+  DPTO_EFA_6: "LIMA"
+  PROV_EFA_7: "LIMA"
+  DIR_EFA_8: "Jr. Lima XX, Cercado de Lima"
+  OCI_9:  "MUNICIPALIDAD PROVINCIAL XXXXX"
+  DPTO_OCI_10: "LIMA"
+  PROV_OCI_11: "LIMA"
+  DIR_OCI_12: "Jr. Lima XX, Cercado de Lima"
+  FIRMANTE_13: "[PCASTANEDA]"
+  ADICIONAL_14: "CUS-018"
+  ADICIONAL_15: "OFICIO N° XXXX-XXXX-XXXX/XXXX-XXXX"
+  ADICIONAL_16:
+  ADICIONAL_17: "Director"
+  ADICIONAL_18:
+output: 
+  word_document:
+    reference_docx: "plantilla_reit.docx"
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+
+# I. LIBRERIAS A UTILIZAR----
+
+#install.packages("lubridate")
+library(lubridate)
+#install.packages("stringr")
+library(stringr)
+
+# II. FECHA DEL DOCUMENTO----
+
+# Mes
+Mes_actual <- str_to_lower(month(now(), 
+                                 label=TRUE, abbr = FALSE))
+
+# III. DEFINIR LOS PARAMETROS----
+
+# Parámetros
+HT <- params$HT_1 
+NUM_OFICIO <- params$N_OFICIO_2
+LUGAR <- params$LUGAR_3
+DESTINATARIO <- params$DESTINATARIO_4
+EFA <- params$EFA_5 
+DPTO_EFA <- params$DPTO_EFA_6
+PROV_EFA <- params$PROV_EFA_7
+DIR_EFA <- params$DIR_EFA_8
+OCI <- params$OCI_9 
+DPTO_OCI <- params$DPTO_OCI_10
+PROV_OCI <- params$PROV_OCI_11
+DIR_OCI <- params$DIR_OCI_12
+FIRMA <- params$FIRMANTE_13
+AUX_1 <- params$ADICIONAL_14
+AUX_2 <- params$ADICIONAL_15
+
+AUX_4 <- params$ADICIONAL_17
+
+```
+
+###### `r HT[[1]]`
+
+### `r LUGAR[[1]]`, `r day(now())` de `r Mes_actual[[1]]` de `r year(now())`
+
+# \${numeroDocumento}
+
+### `r DESTINATARIO[[1]]`
+
+### `r AUX_4[[1]]`
+
+## `r EFA[[1]]`
+
+#### [`r PROV_EFA[[1]]`, `r DPTO_EFA[[1]]`]{.ul}.-
+
+## Cc. ÓRGANO DE CONTROL INSTITUCIONAL
+
+### `r OCI[[1]]`
+
+### `r DIR_OCI[[1]]`
+
+#### [`r DPTO_OCI[[1]]`]{.ul}.-
+
+|            |     |                                                     |
+|------------|-----|-----------------------------------------------------|
+| Asunto     | :   | Reitero solicitud de información                    |
+| Referencia | :   | `r AUX_2[[1]]`                                      |
+|            |     | (Código de problema: [**`r AUX_1[[1]]`**]{.ul})$^1$ |
+
+De mi mayor consideración:
+
+Tengo el agrado de dirigirme a usted para saludarlo cordialmente y, a su vez, **reiterar** el requerimiento de información realizado a través del documento de la referencia, para lo cual se le otorga [**un plazo adicional de cinco (5) días hábiles**]{.ul}.
+
+Es importante mencionar que, la no respuesta al presente requerimiento da lugar a la aplicación de lo establecido en el Numeral 11.2 del Artículo 11 de la Ley N° 29325, Ley del Sistema Nacional de Evaluación y Fiscalización Ambiental, modificada por la Ley N° 30011$^2$.
+
+Finalmente, en caso de haber remitido la información solicitada antes de la notificación del presente documento, agradeceré dejar sin efecto este requerimiento reiterativo de información.
+
+Es propicia la oportunidad para expresarle a usted, los sentimientos de mi especial consideración.
+
+Atentamente,
+
+|     |     |     |
+|-----|-----|-----|
+|     |     |     |
+|     |     |     |
+|     |     |     |
+|     |     |     |
+
+**`r FIRMA[[1]]`**
+
+##### Se adjunta el oficio de la referencia y su respectivo cargo.
