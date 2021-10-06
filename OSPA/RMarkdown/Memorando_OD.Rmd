@@ -12,8 +12,8 @@ params:
   DPTO_OCI_10: 
   PROV_OCI_11: 
   DIR_OCI_12: 
-  FIRMANTE_13: "[PCASTANEDA]"
-  ADICIONAL_14: "CUS-018"
+  FIRMANTE_13: ""
+  ADICIONAL_14: ""
   ADICIONAL_15: "OFICIO N° XXXX-XXXX-XXXX/XXXX-XXXX"
   ADICIONAL_16:
   ADICIONAL_17:
@@ -70,7 +70,7 @@ AUX_2 <- params$ADICIONAL_15
 |----------------|:---:|----------------------------------------------------------------|
 | **PARA**       |  :  | **`r DESTINATARIO[[1]]`**                                      |
 |                |     | Jefe/a de la `r EFA[[1]]`                                      |
-| **CC**         |  :  | **ALICIA PERALTA RODRÍGUEZ**                                   |
+| **CC**         |  :  | ****                                   |
 |                |     | Coordinador/a de Oficina Desconcentradas                       |
 | **ASUNTO**     |  :  | Reitero solicitud de información                               |
 | **REFERENCIA** |  :  | `r AUX_2[[1]]`                                                 |
