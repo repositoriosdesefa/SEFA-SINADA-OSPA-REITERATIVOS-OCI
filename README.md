@@ -9,4 +9,4 @@ Automatizar las comunicaciones reiterativas entre las áreas del Observatorio y 
 - Carpeta de imágenes: contiene pantallazos de la carpeta en drive donde se guardan los productos finales, los encabezados de los documentos generados y muestras del producto final.
 
 ## Observaciones
-Fueron eliminadas las lineas que contienen información sensible: 43 44 45 46 50 51 53 56 58 61 228 229 230 231 232 233 239 242.
+- En la carpeta OSPA fueron eliminadas las lineas que contienen información sensible del archivo Auto_Reiterativos_OCI.R : 9 10 11 20 21.
