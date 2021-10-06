@@ -1,0 +1,135 @@
+---
+params:
+  HT_1: "XXXX-XXX-XXXXXX"
+  N_OFICIO_2: "OFICIO N° XXXX-XXXX-XXXX/XXXX-XXXX"
+  LUGAR_3: "Lima"
+  DESTINATARIO_4: "Alcalde"
+  DPTO_EFA_6: "LIMA"
+  PROV_EFA_7: "LIMA"
+  OCI_9:  "MUNICIPALIDAD PROVINCIAL XXX"
+  DPTO_OCI_10: "LIMA"
+  DIR_OCI_12:
+  FIRMANTE_13: "[EMENDOZA]"
+  ADICIONAL_14: "SC-0179-2017"
+  ADICIONAL_15: "OFICIO N°389-2021-OEFA/DPEF-SEFA-SINADA"
+  ADICIONAL_16: "DRGB/EMA/avi"
+  ADICIONAL_17:
+  ADICIONAL_19: "Capitanía de Huacho"
+  ADICIONAL_20:
+  ADICIONAL_21:
+output: 
+  word_document:
+    reference_docx: "plantilla_reit.docx"
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+
+# I. LIBRERIAS A UTILIZAR----
+
+#install.packages("lubridate")
+library(lubridate)
+#install.packages("stringr")
+library(stringr)
+
+# II. FECHA DEL DOCUMENTO----
+
+# Mes
+Mes_actual <- str_to_lower(month(now(), 
+                                 label=TRUE, abbr = FALSE))
+
+# III. DEFINIR LOS PARAMETROS----
+
+
+# Parámetros
+HT <- params$HT_1 
+NUMOFICIO <- params$N_OFICIO_2
+LUGAR <- params$LUGAR_3
+DESTINATARIO <- params$DESTINATARIO_4
+DPTOEFA <- params$DPTO_EFA_6
+PROVEFA <- params$PROV_EFA_7
+OCI <- params$OCI_9 
+DPTOOCI <- params$DPTO_OCI_10
+DIROCI <- params$DIR_OCI_12
+FIRMA <- params$FIRMANTE_13
+AUX1 <- params$ADICIONAL_14
+AUX2 <- params$ADICIONAL_15
+AUX3 <- params$ADICIONAL_16
+AUX4 <- params$ADICIONAL_17
+PADRE <- params$ADICIONAL_19
+AUX6 <- params$ADICIONAL_20
+AUX7 <- params$ADICIONAL_21
+
+
+```
+
+###### `r HT[[1]]`
+
+### `r LUGAR[[1]]`, `r day(now())` de `r Mes_actual[[1]]` de `r year(now())`
+
+# \${numeroDocumento}
+
+### Señor
+
+### `r DESTINATARIO[[1]]`
+
+## `r AUX4[[1]]`
+
+### `r PADRE[[1]]`, `r PROVEFA[[1]]`.-
+
+##
+
+## Cc. ÓRGANO DE CONTROL INSTITUCIONAL
+
+### `r DPTOEFA[[1]]`
+
+### `r OCI[[1]]``
+
+#### `r DIROCI[[1]]`.-
+
+|            |     |                                                     |
+|------------|-----|-----------------------------------------------------|
+| Asunto     | :   | Reitero solicitud de información                    |
+| Referencia | :   | `r DPTOOCI[[1]]`                                    |
+|            |     | (Código Sinada: **`r AUX1[[1]]`**)                  |
+
+De mi mayor consideración:
+
+Es grato dirigirme a usted para saludarlo cordialmente y, al mismo tiempo, reiterarle con carácter de **URGENTE** remita, en un plazo máximo de **`r AUX2[[1]]` días hábiles**$^1$, la información solicitada mediante el documento de la referencia.
+
+Es preciso mencionar que, la no respuesta al presente requerimiento da lugar a la aplicación de lo establecido en el literal b) del numeral 11.2 del Artículo 11 de la Ley N° 29325, Ley del Sistema Nacional de Evaluación y Fiscalización Ambiental, modificada por la Ley N° 300112$^2$.
+
+Por otro lado, agradeceré que el documento de respuesta al presente requerimiento haga referencia tanto al número de oficio como al código Sinada **`r AUX1[[1]]`**. 
+
+Finalmente, en caso de haber remitido la información solicitada antes de la notificación del presente documento, agradeceré dejar sin efecto este requerimiento reiterativo de información. 
+
+Sin otro particular, hago propicia la ocasión para reiterarle los sentimientos de mi especial consideración y estima. 
+
+Atentamente,
+
+
+|     |     |     |
+|-----|-----|-----|
+|     |     |     |
+|     |     |     |
+|     |     |     |
+|     |     |     |
+|     |     |     |
+
+
+**`r AUX3[[1]]`**
+
+##### `r FIRMA[[1]]`
+|     |     |     |
+|-----|-----|-----|
+|     |     |     |
+
+##### Se adjunta copia de:
+
+##### - `r DPTOOCI[[1]]`.
+
+##### - Ficha de registro para denuncias ambientales con código Sinada `r AUX1[[1]]`.
+
+
+

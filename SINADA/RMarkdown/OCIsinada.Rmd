@@ -1,0 +1,165 @@
+---
+params:
+  HT_1: "XXXX-XXX-XXXXXX"
+  N_OFICIO_2: 
+  LUGAR_3: "Lima"
+  DESTINATARIO_4:
+  OCI_9:  "MUNICIPALIDAD PROVINCIAL XXXXX"
+  DPTO_OCI_10: "LIMA"
+  DIR_OCI_12: "Jr. Lima XX, Cercado de Lima"
+  FIRMANTE_13: "[PCASTANEDA]"
+  ADICIONAL_14: "SC-0111-2021"
+  ADICIONAL_15: "OFICIO N° XXXX-XXXX-XXXX/XXXX-XXXX"
+  ADICIONAL_22: "OFICIO N° XXXX-XXXX-XXXX/XXXX-XXXX"
+  ADICIONAL_17:
+  ADICIONAL_18:
+  ADICIONAL_19: "Municipalidad XXX"
+output: 
+  word_document:
+    reference_docx: "OCI_oficio.docx"
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+
+# I. LIBRERIAS A UTILIZAR----
+
+#install.packages("lubridate")
+library(lubridate)
+#install.packages("stringr")
+library(stringr)
+
+# II. FECHA DEL DOCUMENTO----
+
+# Mes
+Mes_actual <- str_to_lower(month(now(), 
+                                 label=TRUE, abbr = FALSE))
+
+# III. DEFINIR LOS PARAMETROS----
+
+# Parámetros
+HT <- params$HT_1 
+NUM_OFICIO <- params$N_OFICIO_2
+LUGAR <- params$LUGAR_3
+DESTINATARIO <- params$DESTINATARIO_4
+OCI <- params$OCI_9 
+DPTO_OCI <- params$DPTO_OCI_10
+DIR_OCI <- params$DIR_OCI_12
+FIRMA <- params$FIRMANTE_13
+AUX_1 <- params$ADICIONAL_14
+AUX_2 <- params$ADICIONAL_15
+AUX_3 <- params$ADICIONAL_22
+AUX_4 <- params$ADICIONAL_17
+AUX_5 <- params$ADICIONAL_18
+AUX_6 <- params$ADICIONAL_19
+
+
+
+
+
+```
+
+###### `r HT[[1]]`
+
+### `r LUGAR[[1]]`, `r day(now())` de `r Mes_actual[[1]]` de `r year(now())`
+
+# \${numeroDocumento}
+
+### Señor(a)
+
+### Jefe(a) del Órgano de Control Institucional
+
+### `r OCI[[1]]`
+
+### `r DIR_OCI[[1]]`
+
+#### [`r DPTO_OCI[[1]]`]{.ul}.-
+
+##
+
+|            |     |                                                                         |
+|------------|-----|-------------------------------------------------------------------------|
+| Asunto     | :   | Presunto incumplimiento funcional en el trámite de la denuncia ambiental|
+|            |     | identificada con el código Sinada [**`r AUX_1[[1]]`**]{.ul}             |
+| Referencia | :   | `r AUX_2[[1]]`                                                          |
+|            |     | `r AUX_3[[1]]`                                                          |
+
+##
+
+De mi consideración:
+
+Es grato dirigirme a usted para saludarlo cordialmente y, a su vez, hacer de su conocimiento el incumplimiento de remisión de la información pública ambiental por parte de el/la `r AUX_6[[1]]` solicitada mediante los documentos de la referencia.
+
+Sobre el particular, se debe informar que el Servicio de Información Nacional y Denuncias Ambientales (Sinada) es un servicio de alcance nacional que canaliza las denuncias ambientales e informa al ciudadano sobre las acciones desarrolladas por las Entidades de Fiscalización Ambiental (EFA) con relación a la problemática ambiental denunciada en virtud de lo establecido en la Ley General del Ambiente$^1$  y en el Reglamento sobre Transparencia, Acceso a la Información Pública Ambiental y Participación y Consulta Ciudadana en Asuntos Ambientales$^2$.
+
+|     |     |     |
+|-----|-----|-----|
+|     |     |     |
+
+*_______________________________*
+
+######## $^1$ [**Ley N° 28611, Ley General del Ambiente **]{.ul}
+######## [**“Artículo 43.- De la información sobre denuncias presentadas**]{.ul}
+######## [**Artículo 43.1.-**]{.ul} Toda persona tiene derecho a conocer el estado de las denuncias que presente ante cualquier entidad pública respecto de infracciones a la normatividad ambiental (…)”.
+
+##
+
+######## $^2$ [**Decreto Supremo N° 002-2009-MINAM, que aprueba el Reglamento sobre Transparencia, Acceso a la información Pública Ambiental y Participación y Consulta Ciudadana en Asuntos Ambientales.**]{.ul}
+######## [**“Artículo 35.- Mecanismos de participación en la fiscalización**]{.ul}
+######## La participación en la fiscalización ambiental se lleva a cabo mediante mecanismos tales como:
+######## (…)
+######## c) Denuncia de infracciones o de amenazas de infracciones a la normatividad ambiental
+######## (…)
+######## [**Artículo 38.- Denuncia por infracciones a la legislación ambiental**]{.ul} 
+######## Cualquier persona puede denunciar ante las instancias correspondientes el incumplimiento de alguna norma ambiental, acompañando los elementos probatorios del caso. Si la denuncia fuera maliciosa, el denunciante deberá asumir los costos originados por la acción de la fiscalización”.
+
+|     |     |     |
+|-----|-----|-----|
+|     |     |     |
+
+Cabe precisar que, el incumplimiento de funciones de fiscalización ambiental$^3$, así como de remisión de información pública ambiental, acarrean responsabilidades funcionales, laborales y penales$^4$.
+
+Sin otro particular, es propicia la ocasión para expresarle los sentimientos de mi especial estima y consideración. 
+
+Atentamente,
+
+|     |     |     |
+|-----|-----|-----|
+|     |     |     |
+|     |     |     |
+|     |     |     |
+|     |     |     |
+|     |     |     |
+
+**`r FIRMA[[1]]`**
+
+##### `r AUX_4[[1]]`
+|     |     |     |
+|-----|-----|-----|
+|     |     |     |
+##### Se adjuntan los cargos de los oficios en la referencia:
+##### `r AUX_2[[1]]` 
+##### `r AUX_3[[1]]`
+
+|     |     |     |
+|-----|-----|-----|
+|     |     |     |
+|     |     |     |
+|     |     |     |
+|     |     |     |
+*_______________________________*
+
+######## $^3$ [**Ley Nº 29325, Ley del Sistema Nacional de Evaluación y Fiscalización Ambiental, modificada por la Ley 30011. “Artículo 11°. - Funciones Generales **]{.ul}
+######## Son funciones generales del OEFA:
+######## (…)
+######## 11.2 El OEFA, en su calidad de ente rector del Sistema Nacional de Evaluación y Fiscalización Ambiental (SINEFA), ejerce las siguientes funciones:
+######## (…)
+######## b) Función supervisora de Entidades de Fiscalización Ambiental (EFA), nacional, regional o local: comprende la facultad de realizar acciones de seguimiento y verificación del desempeño de las funciones de fiscalización a cargo de entidades de fiscalización ambiental nacional, regional o local a las que se refiere el artículo 7”. 
+######## El OEFA, en ejercicio de su función supervisora, puede establecer procedimientos para la entrega de reportes, informes técnicos y cualquier información relativa al cumplimiento de las funciones a cargo de las Entidades de Fiscalización Ambiental (EFA). El incumplimiento de las funciones antes indicadas acarrea responsabilidad funcional, lo cual es comunicado al órgano competente del Sistema Nacional de Control”.
+
+##
+
+######## $^4$ [**Decreto Supremo N° 002-2009-MINAM, que aprueba el Reglamento sobre Transparencia, Acceso a la Información Pública Ambiental y Participación y Consulta Ciudadana en Asuntos Ambientales**]{.ul}
+######## [**“Artículo 13.- Obligatoriedad del cumplimiento de las disposiciones sobre acceso a la información pública**]{.ul}
+######## Los servidores que incumplan con las disposiciones sobre acceso a la información pública a que se refiere el presente Reglamento, serán sancionados de acuerdo con las normas laborales vigentes y sin perjuicio de la denuncia penal a que hubiere lugar”.

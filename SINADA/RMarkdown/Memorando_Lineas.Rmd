@@ -1,0 +1,103 @@
+---
+params:
+  HT_1: "XXXX-XXX-XXXXXX"
+  N_OFICIO_2: 
+  LUGAR_3: "Lima"
+  DESTINATARIO_4:
+  OCI_9:  "MUNICIPALIDAD PROVINCIAL XXXXX"
+  DPTO_OCI_10: "LIMA"
+  DIR_OCI_12: "Jr. Lima XX, Cercado de Lima"
+  FIRMANTE_13: "[PCASTANEDA]"
+  ADICIONAL_14: "SC-0111-2021"
+  ADICIONAL_15: "OFICIO N° XXXX-XXXX-XXXX/XXXX-XXXX"
+  ADICIONAL_22: "OFICIO N° XXXX-XXXX-XXXX/XXXX-XXXX"
+  ADICIONAL_17:
+  ADICIONAL_18:
+  ADICIONAL_19: "Municipalidad XXX"
+output:
+  word_document:
+    reference_docx: Memorando_Lineas.docx
+  pdf_document: default
+  
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+
+# I. LIBRERIAS A UTILIZAR----
+
+#install.packages("lubridate")
+library(lubridate)
+#install.packages("stringr")
+library(stringr)
+
+# II. FECHA DEL DOCUMENTO----
+
+Mes_actual <- str_to_lower(month(now(), 
+                                 label=TRUE, abbr = FALSE))
+
+# III. DEFINIR LOS PARAMETROS----
+
+HT <- params$HT_1 
+NUM_OFICIO <- params$N_OFICIO_2
+LUGAR <- params$LUGAR_3
+DESTINATARIO <- params$DESTINATARIO_4
+OCI <- params$OCI_9 
+DPTO_OCI <- params$DPTO_OCI_10
+DIR_OCI <- params$DIR_OCI_12
+FIRMA <- params$FIRMANTE_13
+AUX_1 <- params$ADICIONAL_14
+AUX_2 <- params$ADICIONAL_15
+AUX_3 <- params$ADICIONAL_22
+AUX_4 <- params$ADICIONAL_17
+AUX_5 <- params$ADICIONAL_18
+AUX_6 <- params$ADICIONAL_19
+
+
+```
+
+###### [XXX-XXX]
+
+# \${numeroDocumento}
+
+|                |     |                                                                          |
+|----------------|:---:|--------------------------------------------------------------------------|
+| **Para**       |  :  | **Sr/a**                                                                 |
+|                |     | `r DESTINATARIO[[1]]`                                                    |
+| **Asunto**     |  :  | `r AUX_6[[1]]` denuncia ambiental registrada con código Sinada           |
+|                |     |  **`r AUX_1[[1]]`**                                                      |         
+| **Referencia** |  :  | `r AUX_2[[1]]`                                                           |
+| **Fecha**      |  :  | `r LUGAR[[1]]`, `r day(now())` de `r Mes_actual[[1]]` de `r year(now())` |
+
+**\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_**
+
+Tengo el agrado de dirigirme a usted para saludarlo cordialmente y, a su vez, **reiterarle** con carácter de **URGENTE** remita, en un plazo máximo de **`r DPTO_OCI[[1]]`** **días hábiles**$^1$, la información solicitada mediante el documento de la referencia, relacionada a la denuncia **`r AUX_1[[1]]`**.
+
+Sin otro particular, hago propicia la ocasión para expresarle los sentimientos de mi especial consideración y estima personal.
+
+Atentamente,
+
+|     |     |     |
+|-----|-----|-----|
+|     |     |     |
+|     |     |     |
+|     |     |     |
+|     |     |     |
+|     |     |     |
+|     |     |     |
+
+**`r FIRMA[[1]]`**
+
+##### `r AUX_4[[1]]`
+
+##### Se adjunta: Copia del `r AUX_2[[1]]`.
+
+|     |     |     |
+|-----|-----|-----|
+|     |     |     |
+|     |     |     |
+|     |     |     |
+
+*_______________________________*
+
