@@ -10,3 +10,4 @@ Automatizar las comunicaciones reiterativas entre las áreas del Observatorio y 
 
 ## Observaciones
 - En la carpeta OSPA fueron eliminadas las lineas que contienen información sensible del archivo Auto_Reiterativos_OCI.R : 9 10 11 20 21.
+- En la carpeta SINADA fueron eliminadas las lineas que contienen información sensible del archivo Auto_Reiterativos.R : 26 37 y del archivo Automatizar_Oci: 26 35.
